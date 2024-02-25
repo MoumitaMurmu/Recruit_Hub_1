@@ -1,13 +1,16 @@
 import React from 'react'
 import Nav from '../components/Landing/Nav/Nav';
 import Body from '../components/Landing/Body/Body';
-
+import Footer from '../components/Landing/Footer/Footer';
 
 const Landing = () => {
   return (
-   <div className="landing-page">
+   <div>
     <Nav/>
-    </div>
+    <Body/>
+    <Footer/>
+    
+   </div>
   )
 }
 

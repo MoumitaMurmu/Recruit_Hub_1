@@ -1,5 +1,129 @@
-.page-body{
-    background-color: blue;
-    height: 400px;    
-    width: 800px;
+ /* *{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
+
+.body-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1250px;
+    margin: 0px auto;
+    padding: calc(1.5rem + 1.5vh) calc(1.2rem + 1.75vw);
+}
+
+.body-main-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(auto, 600px) minmax(auto, 450px);
+    justify-content: space-around;
+    align-items: center;
+    }
+    
+
+
+.body-main-container h1{
+    font-size: calc(1.2rem + 1.75vw);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.body-main-container p{
+    font-size: calc(0.8rem + 0.2vw);
+    font-weight: 300;
+    line-height: 24px;
+    text-align: justify;
+    margin-top: 2rem;
+    margin-bottom: 2.2rem;
+}
+
+.body-main-container .body-btn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.body-main-container .image-content{
+    display: flex;
+    justify-content: end;
+
+}
+
+.body-main-container .image-content img{
+    width: 100%;
+    object-fit: cover;
+}
+  */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .body-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1250px;
+    margin-top: 5rem;
+    height: 100vh;
+    padding: calc(1.5rem + 1.5vh) calc(1.2rem + 1.75vw);
+    
+  }
+  
+  .body-main-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(auto, 1fr); /* Adjust the layout for small screens */
+    justify-content: space-around;
+    align-items: center;
+   
+  }
+  
+  @media (min-width: 768px) {
+    /* Adjust the layout for medium-sized screens */
+    .body-main-container {
+      grid-template-columns: minmax(auto, 600px) minmax(auto, 450px);
+      margin-top: 5rem;
+    }
+  }
+  
+  .body-main-container h1 {
+    font-size: calc(1.2rem + 1.75vw);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+  
+  .body-main-container p {
+    font-size: calc(0.8rem + 0.2vw);
+    font-weight: 300;
+    line-height: 24px;
+    text-align: justify;
+    margin-top: 2rem;
+    margin-bottom: 2.2rem;
+  }
+  
+  .body-main-container .body-btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .body-main-container .image-content {
+    display: flex;
+    justify-content: center; /* Center the image for small screens */
+  }
+  
+  .body-main-container .image-content img {
+    width: 100%;
+    max-width: 100%; /* Ensure the image does not exceed its container */
+    object-fit: cover;
+  }
+  

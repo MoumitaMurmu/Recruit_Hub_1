@@ -8,16 +8,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Select from 'react-select';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 
-import './addjob.css'
 
 const AddJobBox = () => {
   
   const [selectedDate, setSelectedDate] = useState(null);
   
-  
-
-  
-
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
@@ -29,7 +24,7 @@ const AddJobBox = () => {
 
 
   return (
-    <Form onSubmit={handleFormSubmit} style={{marginTop:'2rem'}}>
+    <Form onSubmit={handleFormSubmit} style={{margin:'2rem'}}>
     <h4 style={{textAlign:'left',
      fontWeight:'600',
      
@@ -46,8 +41,7 @@ const AddJobBox = () => {
             type="text"
             placeholder="Job Position"
             style={{ width: '300px' }}
-            // value={value}
-            // onChange={(e) => setValue(e.target.value)}
+            
           />
         </Form.Group>
 
@@ -135,7 +129,7 @@ const AddJobBox = () => {
         <Form.Control as="textarea" rows={3} placeholder="Job Description"  />
       </Form.Group>
 
-      <Button variant="primary" type="submit" className="job-box-btn">
+      <Button variant="primary" type="submit" style={{marginTop:'15px'}}>
         Submit
       </Button>
     </Form>

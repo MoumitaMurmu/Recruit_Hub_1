@@ -2,7 +2,7 @@ import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import logo from '../../../assests/Recruithublogo.png';
 import { Link, useNavigate } from 'react-router-dom';
-// Styled component for the header
+// // Styled component for the header
 const Header = styled(AppBar)`
   z-index: 1201;
   background: #fff;
@@ -30,7 +30,7 @@ const Nav = () => {
   
   return (
    
-    <Header style={{background:'#fff'}} className='header-container'>
+    <Header style={{background:'#fff', position:'absolute'}} className='header-container' >
       {/* Toolbar for organizing header content */}
       <Toolbar className='toolbar' style={{display:'flex', justifyContent:'space-between'}}>
          {/* Logo container with the new class */}
@@ -106,4 +106,6 @@ const Nav = () => {
 }
 
 export default Nav;
+
+
 

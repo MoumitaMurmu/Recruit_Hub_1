@@ -1,100 +1,103 @@
 import React, { useState } from 'react';
 import Nav from '../components/Landing/Nav/Nav';
-import { Button, Col, Form, FormControl, InputGroup, Row } from 'react-bootstrap';
+import { Button, Col, Form, FormControl, InputGroup, Row, Badge, Container } from 'react-bootstrap';
 import JobCard from '../components/Card/JobCard';
+import { Box } from '@mui/material';
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([
-    // Example job data
-    {
-      id: 1,
-      position: 'Software Developer',
-      companyName: 'ABC Inc.',
-      jobLocation: 'City ABC',
-      jobType: 'Full-Time',
-      jobStatus: 'Pending',
-      // ... other job properties
-    },
-    {
-      id: 2,
-      position: 'FrontEnd Developer',
-      companyName: 'XYZ Inc.',
-      jobLocation: 'City ABC',
-      jobType: 'Full-Time',
-      jobStatus: 'Pending',
-      // ... other job properties
-    },
+   {
+    id: 1,
+    position: 'Software Developer',
+    companyName: 'Elfonze',
+    jobLocation: 'Bangalore',
+    jobType: 'Full-Time',
+    jobStatus: 'Pending',
+   },
 
-    {
-      id: 3,
-      position: 'Backend Developer',
-      companyName: 'ABC Inc.',
-      jobLocation: 'City ABC',
-      jobType: 'Full-Time',
-      jobStatus: 'Pending',
-      // ... other job properties
-    },
+   {
+    id: 2,
+    position: 'Backend Developer',
+    companyName: 'Googletek',
+    jobLocation: 'Hyderabad',
+    jobType: 'Full-Time',
+    jobStatus: 'Pending',
+   },
 
-    {
-      id: 4,
-      position: 'Graphic Design',
-      companyName: 'ABC Inc.',
-      jobLocation: 'City ABC',
-      jobType: 'Full-Time',
-      jobStatus: 'Pending',
-      // ... other job properties
-    },
-    {
-      id: 5,
-      position: 'React Developer',
-      companyName: 'ABC Inc.',
-      jobLocation: 'City ABC',
-      jobType: 'Full-Time',
-      jobStatus: 'Pending',
-      // ... other job properties
-    },
-    {
-      id: 6,
-      position: 'Content Creator',
-      companyName: 'ABC Inc.',
-      jobLocation: 'City ABC',
-      jobType: 'Full-Time',
-      jobStatus: 'Pending',
-      // ... other job properties
-    },
-    {
-      id: 7,
-      position: 'Business Development Executive',
-      companyName: 'ABC Inc.',
-      jobLocation: 'City ABC',
-      jobType: 'Full-Time',
-      jobStatus: 'Pending',
-      // ... other job properties
-    },
-    {
-      id: 8,
-      position: 'Full Stack Developer',
-      companyName: 'ABC Inc.',
-      jobLocation: 'City ABC',
-      jobType: 'Full-Time',
-      jobStatus: 'Pending',
-      // ... other job properties
-    },
-    // Add more job objects as needed
+   {
+    id: 3,
+    position: 'FrontEnd Developer',
+    companyName: 'Crowstack',
+    jobLocation: 'Delhi',
+    jobType: 'Full-Time',
+    jobStatus: 'Pending',
+   },
+   {
+    id: 1,
+    position: 'Software Developer',
+    companyName: 'Elfonze',
+    jobLocation: 'Bangalore',
+    jobType: 'Full-Time',
+    jobStatus: 'Pending',
+   },
+
+   {
+    id: 2,
+    position: 'Software Developer',
+    companyName: 'Elfonze',
+    jobLocation: 'Bangalore',
+    jobType: 'Full-Time',
+    jobStatus: 'Pending',
+   },
+
+   {
+    id: 3,
+    position: 'Software Developer',
+    companyName: 'Elfonze',
+    jobLocation: 'Bangalore',
+    jobType: 'Full-Time',
+    jobStatus: 'Pending',
+   },
+   {
+    id: 1,
+    position: 'Software Developer',
+    companyName: 'Elfonze',
+    jobLocation: 'Bangalore',
+    jobType: 'Full-Time',
+    jobStatus: 'Pending',
+   },
+
+   {
+    id: 2,
+    position: 'Software Developer',
+    companyName: 'Elfonze',
+    jobLocation: 'Bangalore',
+    jobType: 'Full-Time',
+    jobStatus: 'Pending',
+   },
+
+   {
+    id: 3,
+    position: 'Software Developer',
+    companyName: 'Elfonze',
+    jobLocation: 'Bangalore',
+    jobType: 'Full-Time',
+    jobStatus: 'Pending',
+   },
   ]);
 
-  const [filterType, setFilterType] = useState('');
   const [filterStatus, setFilterStatus] = useState('');
-
-  const handleFilterType = (type) => {
-    setFilterType(type);
-    // Implement filtering logic based on job type
-    // Update the job list accordingly
-  };
+  const [sortBy, setSortBy] = useState('');
 
   const handleFilterStatus = (status) => {
     setFilterStatus(status);
     // Implement filtering logic based on job status
+    // Update the job list accordingly
+  };
+
+  const handleSortBy = (sortOption) => {
+    setSortBy(sortOption);
+    // Implement sorting logic based on the chosen option
     // Update the job list accordingly
   };
 
@@ -105,93 +108,80 @@ const Jobs = () => {
 
   // Apply filters to the job list
   const filteredJobs = jobs.filter((job) => {
-    const typeFilterMatch = filterType === '' || job.jobType === filterType;
-    const statusFilterMatch = filterStatus === '' || job.jobStatus === filterStatus;
-    return typeFilterMatch && statusFilterMatch;
+    const statusFilterMatch = filterStatus === '' || job.status === filterStatus;
+    return statusFilterMatch;
   });
 
   return (
-    <div>
+    <>
       <Nav />
-        {/* Filter and Search Form */}
-        {/* <Form>
-          <InputGroup className="mb-3">
-            <FormControl
-              placeholder="Search by Job Title"
-              aria-label="Search by Job Title"
-              onChange={(e) => handleSearch(e.target.value)}
-            />
-            <Button variant="primary">Search</Button>
-          </InputGroup>
-          <Form.Group controlId="filterType">
-            <Form.Label>Filter by Job Type:</Form.Label>
-            <Form.Select onChange={(e) => handleFilterType(e.target.value)}>
-              <option value="">All</option>
-              <option value="Full-Time">Full-Time</option>
-              <option value="Part-Time">Part-Time</option>
-              <option value="Internship">Internship</option>
-            </Form.Select>
-          </Form.Group>
-          <Form.Group controlId="filterStatus">
-            <Form.Label>Filter by Job Status:</Form.Label>
-            <Form.Select onChange={(e) => handleFilterStatus(e.target.value)}>
-              <option value="">All</option>
-              <option value="Pending">Pending</option>
-              <option value="Interview">Interview</option>
-              <option value="Declined">Declined</option>
-            </Form.Select>
-          </Form.Group>
-        </Form> */}
-
-        <div style={{ marginTop: '30rem' }}>
-        {/* Filter, Sort, and Search Container */}
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          {/* Filter Form - Job Type */}
-          <Form.Group controlId="filterType" className="mb-2">
-            <Form.Select onChange={(e) => handleFilterType(e.target.value)}>
-              <option value="">Filter by Job Type</option>
-              <option value="Full-Time">Full-Time</option>
-              <option value="Part-Time">Part-Time</option>
-              <option value="Internship">Internship</option>
-            </Form.Select>
-          </Form.Group>
-
+      <Container style={{
+      padding:'5rem', 
+      position: 'absolute', 
+      right:'8rem', 
+      top:'5rem'}}>
+      <Box>
+        <Row>
           {/* Filter Form - Job Status */}
-          <Form.Group controlId="filterStatus" className="mb-2">
-            <Form.Select onChange={(e) => handleFilterStatus(e.target.value)}>
-              <option value="">Filter by Job Status</option>
-              <option value="Pending">Pending</option>
-              <option value="Interview">Interview</option>
-              <option value="Declined">Declined</option>
-            </Form.Select>
-          </Form.Group>
+          <Col xs={12} md={4} >
+            <Form.Group controlId="filterStatus">
+              <Form.Select onChange={(e) => handleFilterStatus(e.target.value)}>
+                <option value="">Sort By Status</option>
+                <option value="default">Default</option>
+
+                <option value="O">Pending</option>
+                <option value="I">Interview</option>
+                <option value="U">Declined</option>
+              </Form.Select>
+            </Form.Group>
+          </Col>
+
+          {/* Sort Form */}
+          <Col xs={12} md={4} >
+            <Form.Group controlId="sortBy">
+              <Form.Select onChange={(e) => handleSortBy(e.target.value)}>
+              <option  value="">Sort By Type</option>
+               <option value="default">Default</option>
+               <option value="default">Full-Time</option>
+               <option value="default">Part-Time</option>
+               <option value="default">Internship</option>
+
+                {/* Add other sort options as needed */}
+              </Form.Select>
+            </Form.Group>
+          </Col>
 
           {/* Search Form */}
-          <InputGroup className="mb-2">
+          <Col xs={12} md={4} >
+            <InputGroup>
             <FormControl
-              placeholder="Search by Job Title"
-              aria-label="Search by Job Title"
-              onChange={(e) => handleSearch(e.target.value)}
-              
-            />
-            <Button variant="primary">Search</Button>
-          </InputGroup>
-
-          {/* Sort options (if needed) */}
-          {/* Add sort options as needed */}
-        </div>
-
-        {/* Render Job Cards */}
-        <Row>
-          {filteredJobs.map((job) => (
-            <Col key={job.id} xs={12} md={6} lg={4}>
-              <JobCard job={job} />
-            </Col>
-          ))}
+                placeholder="Search By Job Title"
+                aria-label="Search By Job Title"
+                onChange={(e) => handleSearch(e.target.value)}
+              />
+              <Button variant="primary">Search</Button>
+            </InputGroup>
+          </Col>
         </Row>
-      </div>
-    </div>
+        </Box>
+        {/* Job Cards */}
+        {/* Job Cards */}
+        <Box style={{marginTop: '4rem'}}> 
+      <Row className="mb-3">
+     { jobs.map((job) => (
+        <Col key={job.id} xs={12} md={6} lg={4} className="mb-3">
+          <JobCard job={job} />
+        </Col>
+      ))}
+    </Row>
+        {/* Pagination or page navigation if needed */}
+        {/* ... */}
+      </Box>
+      </Container>
+    </>
   );
 };
 
 export default Jobs;
+
+

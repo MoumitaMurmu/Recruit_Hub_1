@@ -1,0 +1,28 @@
+/* styles.css */
+
+.card-container {
+    margin-top: 20px;
+  }
+  
+  .user-info-card, .job-info-card {
+    width: 200px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(14, 6, 6);
+  }
+  
+  .card-text {
+    font-size: 46px;
+    margin-top: 10px;
+    font-weight: 800;
+    color: rgb(44, 42, 35);
+  }
+  

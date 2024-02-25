@@ -6,9 +6,16 @@ import { Box, Button, CardActionArea, CardActions, List, ListItem, ListItemText 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EditCalendarOutlinedIcon from '@mui/icons-material/EditCalendarOutlined';
 import './styles.css';
+import { useNavigate } from 'react-router-dom';
 
 const ProfileBox = () => {
   const [data, setData] = useState({});
+
+  const navigate = useNavigate()
+
+  function editProfile (){
+    navigate('/dashboard/edit-profile');
+  }
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/todos/1')
@@ -41,7 +48,7 @@ const ProfileBox = () => {
       </CardActionArea>
       <CardActions>
         <Button className='profile-btn'>
-        <span><EditCalendarOutlinedIcon style={{height:'20px', marginTop:'5px'}}/></span><span style={{marginLeft:'5px', textAlign:'center'}}>EDIT</span>
+        <span onClick={editProfile}><EditCalendarOutlinedIcon style={{height:'20px', marginTop:'5px'}} /></span><span style={{marginLeft:'5px', textAlign:'center'}}>EDIT</span>
         </Button>
       </CardActions>
     </Card>
